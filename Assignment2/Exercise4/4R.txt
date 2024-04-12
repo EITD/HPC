@@ -1,0 +1,137 @@
+longm@uan01:~/Private/DD2356/Assignment-II> salloc --nodes=1 -t 00:20:00 -A edu24.DD2356 -p shared --ntasks-per-node=1 --cpus-per-task=2
+salloc: Pending job allocation 3502343
+salloc: job 3502343 queued and waiting for resources
+salloc: job 3502343 has been allocated resources
+salloc: Granted job allocation 3502343
+salloc: Waiting for resource configuration
+salloc: Nodes nid002574 are ready for job
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_1
+DFTW calculation with N = 10000
+DFTW computation in 23.257533 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 23.327271 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_1
+DFTW calculation with N = 10000
+DFTW computation in 23.452611 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 22.321336 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_1
+DFTW calculation with N = 10000
+DFTW computation in 23.338412 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 23.635511 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_1
+DFTW calculation with N = 10000
+DFTW computation in 23.193532 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 23.316699 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_1
+DFTW calculation with N = 10000
+DFTW computation in 23.071121 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 22.401635 seconds
+Xre[0] = 10000.000000
+
+
+
+longm@uan01:~/Private/DD2356/Assignment-II> salloc --nodes=1 -t 00:10:00 -A edu24.DD2356 -p shared --ntasks-per-node=1 --cpus-per-task=64
+salloc: Pending job allocation 3502030
+salloc: job 3502030 queued and waiting for resources
+salloc: job 3502030 has been allocated resources
+salloc: Granted job allocation 3502030
+salloc: Waiting for resource configuration
+salloc: Nodes nid002571 are ready for job
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.609920 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.610334 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.615474 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.610445 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.609342 seconds
+Xre[0] = 10000.000000
+
+
+
+longm@uan01:~/Private/DD2356/Assignment-II> salloc --nodes=1 -t 00:10:00 -A edu24.DD2356 -p shared --ntasks-per-node=1 --cpus-per-task=128
+salloc: Pending job allocation 3502075
+salloc: job 3502075 queued and waiting for resources
+salloc: job 3502075 has been allocated resources
+salloc: Granted job allocation 3502075
+salloc: Waiting for resource configuration
+salloc: Nodes nid002571 are ready for job
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.345276 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.324711 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.325228 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.326250 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.326218 seconds
+Xre[0] = 10000.000000
+
+
+
+longm@uan01:~/Private/DD2356/Assignment-II> salloc --nodes=1 -t 00:10:00 -A edu24.DD2356 -p shared --ntasks-per-node=1 --cpus-per-task=256
+salloc: Pending job allocation 3502093
+salloc: job 3502093 queued and waiting for resources
+salloc: job 3502093 has been allocated resources
+salloc: Granted job allocation 3502093
+salloc: Waiting for resource configuration
+salloc: Nodes nid002571 are ready for job
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.190208 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.175655 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.176367 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.173882 seconds
+Xre[0] = 10000.000000
+longm@uan01:~/Private/DD2356/Assignment-II> srun -n 1 DFTW_2
+DFTW calculation with N = 10000
+DFTW computation in 0.175367 seconds
+Xre[0] = 10000.000000
