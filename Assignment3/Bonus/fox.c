@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 16 // Define the overall matrix size
+#define N 1680 // Define the overall matrix size
 
 void sequential_matrix_multiply(double *A, double *B, double *C)
 {
@@ -179,6 +179,8 @@ int main(int argc, char *argv[])
     MPI_Comm row_comm;
     MPI_Comm_split(cart_comm, coords[0], coords[1], &row_comm);
 
+    double start_time, stop_time, elapsed_time, total_time;
+    start_time = MPI_Wtime();
     // Perform the algorithm
     for (int k = 0; k < dims[0]; k++)
     {
@@ -194,42 +196,48 @@ int main(int argc, char *argv[])
         MPI_Cart_shift(cart_comm, 0, -1, &down, &up);
         MPI_Sendrecv_replace(B, n * n, MPI_DOUBLE, up, 0, down, 0, cart_comm, MPI_STATUS_IGNORE);
     }
+    stop_time = MPI_Wtime();
+    elapsed_time = stop_time - start_time;
+    
+    MPI_Reduce(&elapsed_time, &total_time, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
     MPI_Gather(C, n * n, MPI_DOUBLE, full_C, n * n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
     if (rank == 0)
     {
+        printf("Average execution time: %f\n", total_time / size);
+
         rearrange_full_C = malloc(N * N * sizeof(double));
         gather(n, full_C, rearrange_full_C);
 
-        printf("Fox result:\n");
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < N; j++)
-            {
-                printf("%6.2f ", rearrange_full_C[i * N + j]);
-            }
-            printf("\n");
-        }
+        // printf("Fox result:\n");
+        // for (int i = 0; i < N; i++)
+        // {
+        //     for (int j = 0; j < N; j++)
+        //     {
+        //         printf("%6.2f ", rearrange_full_C[i * N + j]);
+        //     }
+        //     printf("\n");
+        // }
 
-        printf("-------------------------------------------------------------------------\n");
+        // printf("-------------------------------------------------------------------------\n");
 
-        printf("Sequential result:\n");
+        // printf("Sequential result:\n");
         int count = 0;
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
             {
-                printf("%6.2f ", C_seq[i * N + j]);
+                // printf("%6.2f ", C_seq[i * N + j]);
                 if (rearrange_full_C[i * N + j] != C_seq[i * N + j])
                 {
                     count++;
                 }
             }
-            printf("\n");
+            // printf("\n");
         }
 
-        printf("-------------------------------------------------------------------------\n");
+        // printf("-------------------------------------------------------------------------\n");
         printf("Different count: %d\n", count);
 
         free(C_seq);
