@@ -78,12 +78,20 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     dims[0] = dims[1] = sqrt(size);
+    int n = N / dims[0];
+    if (N != n*dims[0]) {
+        if (rank == 0) {
+            printf("The square root of the number of processes required by this program should be divisible by N.\n");
+            printf("The current number of processes is: %d, The square root of the number of processes is: %d, N is: %d\n", size, dims[0], N);
+        }
+        MPI_Finalize();
+        return 0;
+    }
     periods[0] = periods[1] = 1;
     reorder = 0;
     MPI_Cart_create(MPI_COMM_WORLD, 2, dims, periods, reorder, &cart_comm);
     MPI_Cart_coords(cart_comm, rank, 2, coords);
 
-    int n = N / dims[0];
     double *A = calloc(n * n, sizeof(double));
     double *B = calloc(n * n, sizeof(double));
     double *C = calloc(n * n, sizeof(double));
@@ -128,7 +136,7 @@ int main(int argc, char *argv[]) {
 
     // int *sendcounts = malloc(size * sizeof(int));
     // int *displs = malloc(size * sizeof(int));
- 
+
     // for (int i = 0; i < size; i++) {
     //     sendcounts[i] = 1;
     //     int row_block = i / (N / n);
@@ -174,6 +182,8 @@ int main(int argc, char *argv[]) {
             }
             printf("\n");
         }
+
+        printf("-------------------------------------------------------------------------\n");
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
